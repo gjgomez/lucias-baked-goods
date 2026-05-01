@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Place a baked goods order with Lucia's Baked Goods. Select items from the menu and send an inquiry."
+>
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-cream to-rose-light/20 py-16 px-6 text-center">
+    <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Let's get baking</p>
+    <h1 class="font-serif text-5xl text-brown">Place an Order</h1>
+    <p class="mt-4 text-brown-light max-w-md mx-auto text-sm leading-relaxed">
+      Fill out the form below and I'll be in touch within 24–48 hours to confirm your order.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Sidebar info -->
+      <aside class="space-y-8">
+        <div>
+          <h2 class="font-serif text-xl text-brown mb-4">Before you order</h2>
+          <ul class="space-y-3 text-sm text-brown-light">
+            <li class="flex gap-3">
+              <span class="text-rose shrink-0 mt-0.5">✦</span>
+              <span>Please order <strong class="text-brown">5–7 days</strong> in advance. Custom cakes may need 2+ weeks.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-rose shrink-0 mt-0.5">✦</span>
+              <span>Mention any <strong class="text-brown">allergies or dietary needs</strong> in your message.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-rose shrink-0 mt-0.5">✦</span>
+              <span>A <strong class="text-brown">deposit</strong> is required for custom cakes and large orders.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-rose shrink-0 mt-0.5">✦</span>
+              <span><strong class="text-brown">Pickup only</strong> — I'll share the address once your order is confirmed.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-rose-light/30 rounded-2xl p-5">
+          <p class="font-serif text-lg text-brown mb-1">Response time</p>
+          <p class="text-sm text-brown-light">I typically reply within 24–48 hours. For urgent requests, please mention it in your message.</p>
+        </div>
+
+        <div>
+          <p class="font-serif text-lg text-brown mb-2">Not sure what to order?</p>
+          <a href="/menu" class="text-rose-dark text-sm font-semibold hover:underline">Browse the full menu →</a>
+        </div>
+      </aside>
+
+      <!-- Form -->
+      <div class="md:col-span-2">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,86 @@
+---
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Menu" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Order" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-cream/90 backdrop-blur-sm sticky top-0 z-50 border-b border-rose-light">
+  <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-serif text-2xl text-brown hover:text-rose-dark transition-colors">
+      Lucia's Baked Goods
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex gap-8 items-center">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class={`text-sm font-medium transition-colors hover:text-rose-dark ${
+              currentPath === href
+                ? "text-rose-dark border-b-2 border-rose pb-0.5"
+                : "text-brown-light"
+            } ${href === "/contact" ? "bg-rose text-white! px-5 py-2 rounded-full hover:bg-rose-dark hover:text-white! border-none" : ""}`}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden p-2 rounded-lg text-brown hover:bg-rose-light transition-colors"
+      aria-label="Toggle navigation"
+    >
+      <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-rose-light px-6 pb-4">
+    <ul class="flex flex-col gap-1 pt-3">
+      {navLinks.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class={`block py-2 px-3 rounded-lg text-sm font-medium transition-colors ${
+              href === "/contact"
+                ? "bg-rose text-white text-center rounded-full mt-2"
+                : currentPath === href
+                ? "text-rose-dark bg-rose-light"
+                : "text-brown-light hover:text-brown hover:bg-rose-light/50"
+            }`}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  toggle?.addEventListener("click", () => {
+    const isHidden = menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden", !isHidden);
+    iconOpen?.classList.toggle("hidden", !isHidden);
+    iconClose?.classList.toggle("hidden", isHidden);
+  });
+</script>

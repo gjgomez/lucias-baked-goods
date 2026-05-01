@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const offerings = [
+  {
+    emoji: "🎂",
+    title: "Custom Cakes",
+    description: "From tiered birthday cakes to intimate anniversary cakes, each one is designed and baked fresh for your occasion. I work with you on flavors, fillings, and decoration.",
+  },
+  {
+    emoji: "🧁",
+    title: "Cupcakes & Small Treats",
+    description: "Perfect for parties, events, or gifts. Cupcakes are available by the half-dozen or dozen in a variety of flavors and frosting styles.",
+  },
+  {
+    emoji: "🍪",
+    title: "Cookie Boxes",
+    description: "Assorted or single-flavor cookie boxes make wonderful gifts. Available by the dozen with mix-and-match options from the cookie menu.",
+  },
+  {
+    emoji: "🍞",
+    title: "Artisan Breads",
+    description: "Long-fermented sourdough, fragrant focaccia, and enriched loaves baked fresh. Great for weekly orders or special occasions.",
+  },
+  {
+    emoji: "🎉",
+    title: "Special Events",
+    description: "Planning a brunch, baby shower, or corporate event? I can bake in larger quantities — just reach out early to discuss timeline and volume.",
+  },
+  {
+    emoji: "🥜",
+    title: "Dietary Accommodations",
+    description: "I can often accommodate nut-free, dairy-free, and other dietary needs. Please mention any allergies or restrictions in your order inquiry.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How far in advance should I order?",
+    a: "I recommend at least 5–7 days for most items. Custom cakes with detailed decoration may require 2 weeks. For large orders or events, the earlier the better!",
+  },
+  {
+    q: "How do I pick up my order?",
+    a: "Pickup is at my home in [Your City]. I'll share the address and confirm a pickup time window once your order is confirmed.",
+  },
+  {
+    q: "Do you deliver?",
+    a: "I don't currently offer delivery, but I'm happy to discuss options for large or specialty orders on a case-by-case basis.",
+  },
+  {
+    q: "Do you take rush orders?",
+    a: "Occasionally, depending on my schedule. Reach out and I'll let you know — rush orders may have an additional fee.",
+  },
+  {
+    q: "What payment methods do you accept?",
+    a: "I accept Venmo, PayPal, and cash. A deposit is required for custom cakes and large orders.",
+  },
+  {
+    q: "Can I request a flavor not on the menu?",
+    a: "Absolutely! I love custom requests. Just describe what you have in mind in the inquiry form and we'll figure it out together.",
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Learn what Lucia's Baked Goods offers — custom cakes, cookies, breads, and more, all baked to order."
+>
+  <!-- Header -->
+  <section class="bg-gradient-to-br from-cream to-sage-light/20 py-16 px-6 text-center">
+    <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">What I offer</p>
+    <h1 class="font-serif text-5xl text-brown">Services</h1>
+    <p class="mt-4 text-brown-light max-w-md mx-auto text-sm leading-relaxed">
+      Every order is made fresh and tailored to your needs. Here's a look at what I love to bake.
+    </p>
+  </section>
+
+  <!-- Offerings Grid -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {offerings.map(({ emoji, title, description }) => (
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border border-rose-light/30">
+          <div class="text-3xl mb-4">{emoji}</div>
+          <h3 class="font-serif text-xl text-brown mb-2">{title}</h3>
+          <p class="text-sm text-brown-light leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="bg-rose-light/20 py-20 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Simple & easy</p>
+      <h2 class="font-serif text-4xl text-brown mb-12">How it works</h2>
+      <div class="space-y-8 text-left">
+        {[
+          { step: "01", title: "Browse & choose", body: "Look through the menu for inspiration, or come with your own idea." },
+          { step: "02", title: "Send an inquiry", body: "Fill out the contact form with your items, date, quantity, and any special requests. The more detail the better!" },
+          { step: "03", title: "Confirm & deposit", body: "I'll reply within 24–48 hours to confirm availability and details. A deposit secures your order." },
+          { step: "04", title: "Pick up & enjoy", body: "Swing by to pick up your freshly baked goods and enjoy!" },
+        ].map(({ step, title, body }) => (
+          <div class="flex gap-6 items-start">
+            <span class="font-serif text-4xl text-rose-light font-bold leading-none shrink-0">{step}</span>
+            <div>
+              <h3 class="font-serif text-xl text-brown mb-1">{title}</h3>
+              <p class="text-sm text-brown-light leading-relaxed">{body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <h2 class="font-serif text-4xl text-brown">Frequently Asked Questions</h2>
+    </div>
+    <div class="space-y-4">
+      {faqs.map(({ q, a }) => (
+        <details class="bg-white rounded-2xl border border-rose-light/40 overflow-hidden group">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-medium text-brown hover:text-rose-dark transition-colors list-none">
+            <span>{q}</span>
+            <span class="text-rose shrink-0 ml-4 transition-transform group-open:rotate-45 text-xl leading-none">+</span>
+          </summary>
+          <div class="px-6 pb-5 text-sm text-brown-light leading-relaxed border-t border-rose-light/30 pt-4">
+            {a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brown text-cream py-16 px-6 text-center">
+    <h2 class="font-serif text-4xl text-rose-light mb-4">Let's bake something special</h2>
+    <p class="text-cream/70 text-sm mb-8">Have a question or ready to order? I'd love to hear from you.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/contact" class="bg-rose hover:bg-rose-dark text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm inline-block">
+        Send an Inquiry
+      </a>
+      <a href="/menu" class="border-2 border-cream/30 text-cream hover:bg-cream/10 font-semibold px-8 py-3.5 rounded-full transition-colors text-sm inline-block">
+        View the Menu
+      </a>
+    </div>
+  </section>
+</Layout>

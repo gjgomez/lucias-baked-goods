@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuCard from '../components/MenuCard.astro';
+import { menuItems } from '../data/menu';
+
+const featured = menuItems.filter(item => item.featured && item.available).slice(0, 3);
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-cream via-rose-light/30 to-cream pt-20 pb-28 px-6 text-center">
+    <!-- Decorative background circles -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-rose-light/40 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-sage-light/40 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+    <div class="relative max-w-3xl mx-auto">
+      <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-4">Baked to order · Made with love</p>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl text-brown leading-tight">
+        Lucia's<br />Baked Goods
+      </h1>
+      <p class="mt-6 text-lg text-brown-light max-w-xl mx-auto leading-relaxed">
+        Handcrafted cakes, cookies, and breads made from scratch with quality ingredients and a whole lot of care.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/menu" class="bg-rose hover:bg-rose-dark text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm">
+          Browse the Menu
+        </a>
+        <a href="/contact" class="border-2 border-rose text-rose-dark hover:bg-rose-light font-semibold px-8 py-3.5 rounded-full transition-colors text-sm">
+          Place an Order
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Hello there</p>
+        <h2 class="font-serif text-4xl text-brown mb-5 leading-snug">Hi, I'm Lucia!</h2>
+        <p class="text-brown-light leading-relaxed mb-4">
+          I bake artisan cakes, cookies, and breads from my home kitchen using locally sourced ingredients wherever possible. Every item is made fresh to order — no two are exactly alike.
+        </p>
+        <p class="text-brown-light leading-relaxed mb-6">
+          Whether you need a showstopper birthday cake, a box of cookies for a gathering, or a beautiful sourdough loaf for your weekend brunch, I'd love to bake for you.
+        </p>
+        <a href="/services" class="text-rose-dark font-semibold text-sm hover:underline">
+          Learn more about what I offer →
+        </a>
+      </div>
+      <!-- Decorative card -->
+      <div class="bg-white rounded-3xl p-8 shadow-sm border border-rose-light/50 text-center">
+        <div class="text-5xl mb-4">🎂</div>
+        <p class="font-serif text-2xl text-brown mb-2">Made fresh,<br />always to order</p>
+        <p class="text-sm text-brown-light">No freezers. No shortcuts. Just real ingredients and real love.</p>
+        <div class="mt-6 grid grid-cols-3 gap-4 pt-6 border-t border-rose-light">
+          <div>
+            <p class="font-serif text-2xl text-brown font-bold">100%</p>
+            <p class="text-xs text-brown-light mt-1">From scratch</p>
+          </div>
+          <div>
+            <p class="font-serif text-2xl text-brown font-bold">3</p>
+            <p class="text-xs text-brown-light mt-1">Categories</p>
+          </div>
+          <div>
+            <p class="font-serif text-2xl text-brown font-bold">❤️</p>
+            <p class="text-xs text-brown-light mt-1">Baked with love</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Items -->
+  {featured.length > 0 && (
+    <section class="bg-white py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Most loved</p>
+          <h2 class="font-serif text-4xl text-brown">Customer Favorites</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {featured.map(item => (
+            <MenuCard
+              name={item.name}
+              description={item.description}
+              price={item.price}
+              image={item.image}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a href="/menu" class="text-rose-dark font-semibold text-sm hover:underline">
+            See the full menu →
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- How it Works -->
+  <section class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+      <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Simple process</p>
+      <h2 class="font-serif text-4xl text-brown">How it works</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        { step: "1", title: "Browse the menu", body: "Explore my full selection of cakes, cookies, and breads. Everything is made to order." },
+        { step: "2", title: "Send an inquiry", body: "Fill out the contact form with your desired items, date needed, and any special requests." },
+        { step: "3", title: "Pick up & enjoy", body: "I'll confirm your order and arrange a pickup time. Then all that's left is to dig in!" },
+      ].map(({ step, title, body }) => (
+        <div class="text-center">
+          <div class="w-12 h-12 bg-rose-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="font-serif text-rose-dark font-bold text-lg">{step}</span>
+          </div>
+          <h3 class="font-serif text-xl text-brown mb-2">{title}</h3>
+          <p class="text-sm text-brown-light leading-relaxed">{body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="bg-brown text-cream py-16 px-6 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-serif text-4xl text-rose-light mb-4">Ready to order?</h2>
+      <p class="text-cream/70 mb-8 text-sm leading-relaxed">
+        Have something in mind? I'd love to hear from you. Fill out the inquiry form and I'll be in touch within 24–48 hours.
+      </p>
+      <a href="/contact" class="bg-rose hover:bg-rose-dark text-white font-semibold px-10 py-3.5 rounded-full transition-colors text-sm inline-block">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</Layout>

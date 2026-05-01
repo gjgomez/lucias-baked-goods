@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+}
+
+const { name, description, price, image } = Astro.props;
+
+const fallback = "/images/placeholder.svg";
+---
+
+<article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+  <div class="aspect-[4/3] overflow-hidden bg-rose-light">
+    <img
+      src={image}
+      alt={name}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      onerror={`this.src='${fallback}'`}
+      loading="lazy"
+    />
+  </div>
+  <div class="p-5">
+    <h3 class="font-serif text-lg text-brown font-semibold">{name}</h3>
+    <p class="text-sm text-brown-light mt-1 leading-relaxed">{description}</p>
+    <p class="mt-3 text-rose-dark font-semibold text-sm">{price}</p>
+  </div>
+</article>

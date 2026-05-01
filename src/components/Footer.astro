@@ -1,0 +1,44 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-brown text-cream mt-16">
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Brand -->
+      <div>
+        <p class="font-serif text-2xl text-rose-light mb-3">Lucia's Baked Goods</p>
+        <p class="text-sm text-cream/70 leading-relaxed">
+          Handcrafted cakes, cookies, and breads baked to order with quality ingredients and a whole lot of love.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <p class="font-semibold text-sm tracking-wider uppercase text-rose-light mb-4">Explore</p>
+        <ul class="space-y-2 text-sm text-cream/80">
+          <li><a href="/menu" class="hover:text-rose-light transition-colors">Menu</a></li>
+          <li><a href="/services" class="hover:text-rose-light transition-colors">Services</a></li>
+          <li><a href="/contact" class="hover:text-rose-light transition-colors">Place an Order</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <p class="font-semibold text-sm tracking-wider uppercase text-rose-light mb-4">Get in Touch</p>
+        <ul class="space-y-2 text-sm text-cream/80">
+          <li>
+            <a href="/contact" class="hover:text-rose-light transition-colors">Send an order inquiry →</a>
+          </li>
+          <li class="text-cream/60 text-xs pt-1">
+            I typically respond within 24–48 hours.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-cream/10 mt-10 pt-6 text-center text-xs text-cream/40">
+      &copy; {year} Lucia's Baked Goods. Made with love.
+    </div>
+  </div>
+</footer>

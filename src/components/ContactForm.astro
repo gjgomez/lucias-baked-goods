@@ -1,0 +1,101 @@
+---
+import { menuItems } from '../data/menu';
+
+const availableItems = menuItems.filter(item => item.available);
+---
+
+<form
+  name="order-inquiry"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="space-y-6"
+>
+  <input type="hidden" name="form-name" value="order-inquiry" />
+  <!-- Honeypot spam prevention -->
+  <p class="hidden" aria-hidden="true">
+    <label>Don't fill this out: <input name="bot-field" /></label>
+  </p>
+
+  <!-- Name + Email -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div>
+      <label for="name" class="block text-sm font-medium text-brown mb-1.5">Your Name <span class="text-rose-dark">*</span></label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        required
+        placeholder="Jane Smith"
+        class="w-full px-4 py-3 rounded-xl border border-rose-light bg-white text-brown placeholder-brown-light/50 focus:outline-none focus:ring-2 focus:ring-rose focus:border-transparent transition"
+      />
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-brown mb-1.5">Email Address <span class="text-rose-dark">*</span></label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        required
+        placeholder="jane@example.com"
+        class="w-full px-4 py-3 rounded-xl border border-rose-light bg-white text-brown placeholder-brown-light/50 focus:outline-none focus:ring-2 focus:ring-rose focus:border-transparent transition"
+      />
+    </div>
+  </div>
+
+  <!-- Event / Occasion -->
+  <div>
+    <label for="occasion" class="block text-sm font-medium text-brown mb-1.5">Occasion or Event</label>
+    <input
+      id="occasion"
+      type="text"
+      name="occasion"
+      placeholder="Birthday, wedding, just because…"
+      class="w-full px-4 py-3 rounded-xl border border-rose-light bg-white text-brown placeholder-brown-light/50 focus:outline-none focus:ring-2 focus:ring-rose focus:border-transparent transition"
+    />
+  </div>
+
+  <!-- Menu Items -->
+  <fieldset>
+    <legend class="text-sm font-medium text-brown mb-3">
+      Items I'm interested in <span class="text-brown-light/60 font-normal">(select all that apply)</span>
+    </legend>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      {availableItems.map(item => (
+        <label class="flex items-start gap-3 p-3 rounded-xl border border-rose-light bg-white hover:bg-rose-light/30 cursor-pointer transition-colors group">
+          <input
+            type="checkbox"
+            name="items"
+            value={item.name}
+            class="mt-0.5 w-4 h-4 rounded accent-rose-dark cursor-pointer"
+          />
+          <span class="text-sm text-brown group-hover:text-brown transition-colors">
+            <span class="font-medium">{item.name}</span>
+            <span class="block text-xs text-brown-light/70">{item.price}</span>
+          </span>
+        </label>
+      ))}
+    </div>
+  </fieldset>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm font-medium text-brown mb-1.5">
+      Tell me more <span class="text-brown-light/60 font-normal">(flavors, dietary needs, quantity, date needed…)</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="I'd love to order a chocolate cake for 20 people for a birthday on June 15th. Nut-free please!"
+      class="w-full px-4 py-3 rounded-xl border border-rose-light bg-white text-brown placeholder-brown-light/50 focus:outline-none focus:ring-2 focus:ring-rose focus:border-transparent transition resize-none"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full sm:w-auto bg-rose hover:bg-rose-dark text-white font-semibold px-10 py-3.5 rounded-full transition-colors cursor-pointer"
+  >
+    Send Inquiry
+  </button>
+</form>

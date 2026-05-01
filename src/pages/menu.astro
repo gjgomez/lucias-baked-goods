@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MenuCard from '../components/MenuCard.astro';
+import { menuItems, categoryLabels, type Category } from '../data/menu';
+
+const categories = Object.keys(categoryLabels) as Category[];
+const availableItems = menuItems.filter(item => item.available);
+---
+
+<Layout
+  title="Menu"
+  description="Browse Lucia's full menu of handcrafted cakes, cupcakes, cookies, and breads — all made to order."
+>
+  <!-- Page Header -->
+  <section class="bg-gradient-to-br from-cream to-rose-light/20 py-16 px-6 text-center">
+    <p class="text-rose-dark font-medium tracking-widest uppercase text-xs mb-3">Made fresh to order</p>
+    <h1 class="font-serif text-5xl text-brown">The Menu</h1>
+    <p class="mt-4 text-brown-light max-w-md mx-auto text-sm leading-relaxed">
+      Everything is baked to order. Browse below and reach out via the contact form to place your order.
+    </p>
+  </section>
+
+  <!-- Category Sections -->
+  <div class="max-w-5xl mx-auto px-6 py-16 space-y-20">
+    {categories.map(category => {
+      const items = availableItems.filter(item => item.category === category);
+      if (items.length === 0) return null;
+      return (
+        <section id={category}>
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="font-serif text-3xl text-brown">{categoryLabels[category]}</h2>
+            <div class="flex-1 h-px bg-rose-light"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {items.map(item => (
+              <MenuCard
+                name={item.name}
+                description={item.description}
+                price={item.price}
+                image={item.image}
+              />
+            ))}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-rose-light/30 py-14 px-6 text-center">
+    <h2 class="font-serif text-3xl text-brown mb-3">See something you like?</h2>
+    <p class="text-brown-light text-sm mb-6">Fill out the order inquiry form and I'll be in touch to confirm details.</p>
+    <a href="/contact" class="bg-rose hover:bg-rose-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm inline-block">
+      Place an Order
+    </a>
+  </section>
+</Layout>
