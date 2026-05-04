@@ -4,14 +4,17 @@ interface Props {
   description: string;
   price: string;
   image: string;
+  options?: string[];
 }
 
-const { name, description, price, image } = Astro.props;
+const { name, description, price, image, options } = Astro.props;
 
 const fallback = "/images/placeholder.svg";
 ---
 
-<article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<article
+  class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+>
   <div class="aspect-[4/3] overflow-hidden bg-rose-light">
     <img
       src={image}
@@ -24,6 +27,15 @@ const fallback = "/images/placeholder.svg";
   <div class="p-5">
     <h3 class="font-serif text-lg text-brown font-semibold">{name}</h3>
     <p class="text-sm text-brown-light mt-1 leading-relaxed">{description}</p>
+    {
+      options && (
+        <ul class="mt-1 list-disc list-outside pl-4 text-xs text-brown-light italic space-y-0.5">
+          {options.map((opt) => (
+            <li>{opt}</li>
+          ))}
+        </ul>
+      )
+    }
     <p class="mt-3 text-rose-dark font-semibold text-sm">{price}</p>
   </div>
 </article>
