@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     options: [
       "Frosting: Chocolate, Chocolate Confetti, Vanilla, Vanilla Confetti, Nutella",
     ],
-    price: "From $55",
+    price: "From $25",
     category: "cakes",
     image: "/images/vanilla-cake.jpg",
     featured: true,
