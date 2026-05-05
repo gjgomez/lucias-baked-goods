@@ -26,7 +26,7 @@ export const menuItems: MenuItem[] = [
     id: "vanilla-cake",
     name: "Vanilla Cake",
     description:
-      "Three layers of fluffy vanilla sponge with customizable frostings.",
+      "Two layers of fluffy vanilla sponge with customizable frostings.",
     options: [
       "Frosting: Chocolate, Chocolate Confetti, Vanilla, Vanilla Confetti, Nutella",
     ],
@@ -43,7 +43,7 @@ export const menuItems: MenuItem[] = [
     description:
       "Tangy lemon bars with a buttery shortbread crust and a dusting of powdered sugar.",
     options: ["Gluten-Free", "Dairy-Free"],
-    price: "$2.50 each / $20 tray of 12",
+    price: "$20 tray of 12",
     category: "cookies",
     image: "/images/lemon-bars.jpg",
     featured: true,
@@ -54,7 +54,7 @@ export const menuItems: MenuItem[] = [
     name: "Chocolate Chip Cookies",
     description:
       "Classic and crispy on the edges, chewy in the center, loaded with chocolate chunks.",
-    price: "$1.50 each / $15 dozen",
+    price: "$15 dozen",
     category: "cookies",
     image: "/images/chocolate-chip-cookies.jpg",
     featured: true,
