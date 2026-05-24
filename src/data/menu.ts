@@ -49,6 +49,34 @@ export const menuItems: MenuItem[] = [
     featured: true,
     available: true,
   },
+  {
+    id: "strawberry-cake",
+    name: "Strawberry Cake",
+    description:
+      "Layers of rich strawberry sponge with customizable frostings.",
+    options: [
+      "Single layer, Double layer, Frosting: Chocolate, Chocolate Confetti, Vanilla, Vanilla Confetti, Nutella",
+    ],
+    price: "From $25",
+    category: "cakes",
+    image: "/images/strawberry-cake.jpg",
+    featured: true,
+    available: true,
+  },
+  {
+    id: "red-velvet-cake",
+    name: "Red Velvet Cake",
+    description:
+      "Layers of rich red velvet sponge with customizable frostings.",
+    options: [
+      "Single layer, Double layer, Frosting: Chocolate, Chocolate Confetti, Vanilla, Vanilla Confetti, Nutella",
+    ],
+    price: "From $25",
+    category: "cakes",
+    image: "/images/red-velvet-cake.jpg",
+    featured: true,
+    available: true,
+  },
   // Cookies & Bars
   {
     id: "lemon-bars",
