@@ -73,7 +73,17 @@ export const menuItems: MenuItem[] = [
     featured: true,
     available: true,
   },
-
+  {
+    id: "oatmeal-cookies",
+    name: "Oatmeal Cookies",
+    description:
+      "Hearty oatmeal cookies with a chewy texture and a hint of cinnamon.",
+    price: "$15 dozen",
+    category: "cookies",
+    image: "/images/oatmeal-cookies.jpg",
+    featured: true,
+    available: true,
+  },
   {
     id: "red-velvet-brownies",
     name: "Red Velvet Brownies",
