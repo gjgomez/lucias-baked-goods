@@ -91,6 +91,30 @@ export const menuItems: MenuItem[] = [
     featured: true,
     available: true,
   },
+  {
+    id: "orange-tea-cakes",
+    name: "Orange Tea Cakes",
+    description:
+      "Delicate orange-flavored tea cakes with a hint of citrus zest.",
+    options: ["Gluten-Free", "Dairy-Free"],
+    price: "$25 tray of 12",
+    category: "cookies",
+    image: "/images/orange-tea-cakes.jpg",
+    featured: true,
+    available: true,
+  },
+  {
+    id: "salted-caramel-cupcakes",
+    name: "Salted Caramel Cupcakes",
+    description:
+      "Delicious cupcakes with a rich salted caramel flavor.",
+    options: ["Gluten-Free", "Dairy-Free"],
+    price: "$25 tray of 12",
+    category: "cookies",
+    image: "/images/salted-caramel-cupcakes.jpg",
+    featured: true,
+    available: true,
+  }
   // Cookies & Bars
   {
     id: "lemon-bars",
@@ -171,18 +195,6 @@ export const menuItems: MenuItem[] = [
     price: "$25 tray of 12",
     category: "cookies",
     image: "/images/key-lime-tarts.jpg",
-    featured: true,
-    available: true,
-  },
-  {
-    id: "orange-tea-cakes",
-    name: "Orange Tea Cakes",
-    description:
-      "Delicate orange-flavored tea cakes with a hint of citrus zest.",
-    options: ["Gluten-Free", "Dairy-Free"],
-    price: "$25 tray of 12",
-    category: "cookies",
-    image: "/images/orange-tea-cakes.jpg",
     featured: true,
     available: true,
   },
