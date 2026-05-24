@@ -77,6 +77,20 @@ export const menuItems: MenuItem[] = [
     featured: true,
     available: true,
   },
+  {
+    id: "carrot-cake",
+    name: "Carrot Cake",
+    description:
+      "Single layer of moist carrot sponge with customizable frostings.",
+    options: [
+      "Frosting: Chocolate, Chocolate Confetti, Vanilla, Vanilla Confetti, Nutella",
+    ],
+    price: "From $25",
+    category: "cakes",
+    image: "/images/carrot-cake.jpg",
+    featured: true,
+    available: true,
+  },
   // Cookies & Bars
   {
     id: "lemon-bars",
