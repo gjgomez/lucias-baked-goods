@@ -1,4 +1,4 @@
-export type Category = "cakes" | "cookies" | "breads";
+export type Category = "cakes" | "cookies" | "others";
 
 export type MenuItem = {
   id: string;
@@ -15,7 +15,7 @@ export type MenuItem = {
 export const categoryLabels: Record<Category, string> = {
   cakes: "Cakes & Cupcakes",
   cookies: "Cookies & Bars",
-  breads: "Breads",
+  others: "Others",
 };
 
 // ─── Add new items below — set available: false to hide without deleting ───
@@ -45,7 +45,7 @@ export const menuItems: MenuItem[] = [
     ],
     price: "From $25",
     category: "cakes",
-    image: "/images/chocolate-cake.jpg",
+    image: "/images/chocolate-cake.png",
     featured: true,
     available: true,
   },
@@ -59,7 +59,7 @@ export const menuItems: MenuItem[] = [
     ],
     price: "From $25",
     category: "cakes",
-    image: "/images/strawberry-cake.jpg",
+    image: "/images/strawberry-cake.png",
     featured: true,
     available: true,
   },
@@ -98,8 +98,8 @@ export const menuItems: MenuItem[] = [
       "Delicate orange-flavored tea cakes with a hint of citrus zest.",
     options: ["Gluten-Free", "Dairy-Free"],
     price: "$25 tray of 12",
-    category: "cookies",
-    image: "/images/orange-tea-cakes.jpg",
+    category: "cakes",
+    image: "/images/orange-tea-cakes.png",
     featured: true,
     available: true,
   },
@@ -109,8 +109,8 @@ export const menuItems: MenuItem[] = [
     description: "Delicious cupcakes with a rich salted caramel flavor.",
     options: ["Gluten-Free", "Dairy-Free"],
     price: "$25 tray of 12",
-    category: "cookies",
-    image: "/images/salted-caramel-cupcakes.jpg",
+    category: "cakes",
+    image: "/images/salted-caramel-cupcakes.png",
     featured: true,
     available: true,
   },
@@ -123,7 +123,7 @@ export const menuItems: MenuItem[] = [
     options: ["Gluten-Free", "Dairy-Free"],
     price: "$20 tray of 12",
     category: "cookies",
-    image: "/images/lemon-bars.jpg",
+    image: "/images/lemon-bars.png",
     featured: true,
     available: true,
   },
@@ -135,7 +135,7 @@ export const menuItems: MenuItem[] = [
     options: ["Chocolate Chips, Butterscotch Chips, or Both"],
     price: "$15 dozen",
     category: "cookies",
-    image: "/images/chocolate-chip-cookies.jpg",
+    image: "/images/chocolate-chip-cookies.png",
     featured: true,
     available: true,
   },
@@ -147,7 +147,7 @@ export const menuItems: MenuItem[] = [
     options: ["Plain, Vanilla Frosted"],
     price: "$15 dozen",
     category: "cookies",
-    image: "/images/sugar-cookies.jpg",
+    image: "/images/sugar-cookies.png",
     featured: true,
     available: true,
   },
@@ -158,7 +158,7 @@ export const menuItems: MenuItem[] = [
       "Hearty oatmeal cookies with a chewy texture and a hint of cinnamon.",
     price: "$15 dozen",
     category: "cookies",
-    image: "/images/oatmeal-cookies.jpg",
+    image: "/images/oatmeal-cookies.png",
     featured: true,
     available: true,
   },
@@ -169,7 +169,7 @@ export const menuItems: MenuItem[] = [
       "Rich and fudgy red velvet brownies with a hint of cream cheese swirl.",
     price: "$20 tray of 12",
     category: "cookies",
-    image: "/images/red-velvet-brownies.jpg",
+    image: "/images/red-velvet-brownies.png",
     featured: true,
     available: true,
   },
@@ -181,7 +181,7 @@ export const menuItems: MenuItem[] = [
     options: ["Plain, Chocolate Chips, Butterscotch Chips"],
     price: "$20 tray of 12",
     category: "cookies",
-    image: "/images/cookie-bars.jpg",
+    image: "/images/cookie-bars.png",
     featured: true,
     available: true,
   },
@@ -193,10 +193,31 @@ export const menuItems: MenuItem[] = [
     options: ["Gluten-Free", "Dairy-Free"],
     price: "$25 tray of 12",
     category: "cookies",
-    image: "/images/key-lime-tarts.jpg",
+    image: "/images/key-lime-tarts.png",
     featured: true,
     available: true,
   },
-  // Breads
-  ,
+  // Others
+  {
+    id: "apple-cider-donuts",
+    name: "Apple Cider Donuts",
+    description:
+      "Delicious apple cider donuts with with a dusting of cinnamon sugar.",
+    price: "$25 tray of 12",
+    category: "others",
+    image: "/images/apple-cider-donuts.png",
+    featured: true,
+    available: true,
+  },
+  {
+    id: "brookie",
+    name: "Brookie",
+    description:
+      "Three layers of cookie bars with brownie, and nutella frosting.",
+    price: "$25",
+    category: "others",
+    image: "/images/brookie.png",
+    featured: true,
+    available: true,
+  },
 ];
