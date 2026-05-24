@@ -87,7 +87,7 @@ export const menuItems: MenuItem[] = [
     ],
     price: "From $25",
     category: "cakes",
-    image: "/images/carrot-cake.jpg",
+    image: "/images/carrot-cake.png",
     featured: true,
     available: true,
   },
@@ -106,15 +106,14 @@ export const menuItems: MenuItem[] = [
   {
     id: "salted-caramel-cupcakes",
     name: "Salted Caramel Cupcakes",
-    description:
-      "Delicious cupcakes with a rich salted caramel flavor.",
+    description: "Delicious cupcakes with a rich salted caramel flavor.",
     options: ["Gluten-Free", "Dairy-Free"],
     price: "$25 tray of 12",
     category: "cookies",
     image: "/images/salted-caramel-cupcakes.jpg",
     featured: true,
     available: true,
-  }
+  },
   // Cookies & Bars
   {
     id: "lemon-bars",
