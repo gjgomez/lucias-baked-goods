@@ -62,6 +62,19 @@ export const menuItems: MenuItem[] = [
     available: true,
   },
   {
+    id: "sugar-cookies",
+    name: "Sugar Cookies",
+    description:
+      "Classic sugar cookies with a soft and chewy texture, perfect for any occasion.",
+    options: ["Plain, Vanilla Frosted"],
+    price: "$15 dozen",
+    category: "cookies",
+    image: "/images/sugar-cookies.jpg",
+    featured: true,
+    available: true,
+  },
+
+  {
     id: "red-velvet-brownies",
     name: "Red Velvet Brownies",
     description:
