@@ -96,6 +96,18 @@ export const menuItems: MenuItem[] = [
     featured: true,
     available: true,
   },
+  {
+    id: "orange-tea-cakes",
+    name: "Orange Tea Cakes",
+    description:
+      "Delicate orange-flavored tea cakes with a hint of citrus zest.",
+    options: ["Gluten-Free", "Dairy-Free"],
+    price: "$25 tray of 12",
+    category: "cookies",
+    image: "/images/orange-tea-cakes.jpg",
+    featured: true,
+    available: true,
+  },
   // Breads
   ,
 ];
